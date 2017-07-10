@@ -10,17 +10,12 @@ namespace RecipesWeb.Controllers
 {
     public class RecipeApiController : ApiController
     {
-        private IRecipeService _recipeService;
-
-        RecipeApiController()
-        {
-            _recipeService = new RecipeService();
-        }
-
+      
         [Route("api/ingredients")]
         public List<Ingredient> GetIngredients()
         {
-            var ingredients = _recipeService.GetIngredients();
+            var recipeService = new RecipeService();
+            var ingredients = recipeService.GetIngredients();
             return ingredients; 
         }
 
